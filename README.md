@@ -1,3 +1,6 @@
+[DEMO-LINK:](https://den-bulaev.github.io/catalog/)
+[DESIGN:](https://prntscr.com/1ajiicj)
+
 Task:
 
 Для выполнения задания необходимо использовать React. 
