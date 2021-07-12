@@ -1,5 +1,5 @@
-[DEMO-LINK:](https://den-bulaev.github.io/catalog/)
-[DESIGN:](https://prntscr.com/1ajiicj)
+[DEMO-LINK](https://den-bulaev.github.io/catalog/)<br />
+[DESIGN](https://prntscr.com/1ajiicj)
 
 Task:
 
