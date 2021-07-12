@@ -1,3 +1,6 @@
+[DEMO-LINK:](https://den-bulaev.github.io/catalog/)
+[DESIGN:](https://prntscr.com/1ajiicj)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
