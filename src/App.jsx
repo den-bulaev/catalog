@@ -386,6 +386,7 @@ function App() {
                 name="product-name"
                 id="name"
                 maxLength="32"
+                required
               />
             </div>
 
@@ -400,6 +401,7 @@ function App() {
                 placeholder="Pice"
                 name="price"
                 id="price"
+                required
               />
             </div>
 
@@ -420,8 +422,9 @@ function App() {
               className="textarea"
               placeholder="Description"
               maxLength="500"
+              required
             />
-            <button type="button" className="button is-light">
+            <button type="submit" className="button is-light">
               Add product
             </button>
           </div>
