@@ -1,3 +1,23 @@
 body {
   margin: 0;
 }
+
+.Products .title {                  // bulma class
+  margin: 0 !important;
+}
+
+.media {         
+  display: block !important;         // bulma class
+  height: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: 0.3s;
+}
+
+.media-content :not(:last-child) {  // bulma class
+  margin-bottom: 10px !important;
+}
+
+.media-left {                 // bulma class
+  float: left;
+}
