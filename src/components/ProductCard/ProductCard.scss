@@ -1,0 +1,36 @@
+@import "../../utils/variables";
+
+.ProductCard {
+  position: relative;
+  justify-self: center;
+  width: $card-width;
+  min-height: $card-height;
+
+  &--card {
+    transition: 0.3s;
+    width: $card-width;
+    min-height: $card-height;
+  
+    &:hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow-y: visible;
+      transform: translate(10px, 10px);
+      z-index: 2;
+      cursor: pointer;
+    }
+  
+    &:hover .media {                  // media - bulma class !!!!
+      overflow-y: visible;
+      height: unset;
+    }
+  }
+
+  &__image {
+    height: 150px;
+    max-width: 130px;
+    object-fit: contain;
+    object-position: top left;
+  }
+}
