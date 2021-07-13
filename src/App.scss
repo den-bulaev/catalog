@@ -15,141 +15,24 @@
   &__new-product-section {
     padding-top: 50px;
   }
-}
 
-.Control-menu {
-  display: inline-block;
-  padding: 10px;
-  width: 25%;
-  border-right: 1px solid rgba($color: #686868, $alpha: 0.2);
-
-  @media(max-width: $breakpoint-2) {
-    width: 40%;
-  }
-
-  @media(max-width: $breakpoint-3) {
-    width: 100%;
-    margin-bottom: 40px;
-    border: 1px solid rgba($color: #686868, $alpha: 0.2);
-  }
-
-  &__block:not(:last-child) {
-    margin-bottom: 30px;
-  }
-
-  &__radio {
-    display: block;
-
-    & :first-child {
-      margin-right: 10px;
-    }
-  }
-
-  &__price-wrapper {
+  &__products {
     display: flex;
-    column-gap: 30px;
-    row-gap: 20px;
     flex-wrap: wrap;
-  }
-
-  &__price-label {
-    display: inline-block;
-  }
-
-  &__price {
-    display: block;
-    margin-top: 10px;
-    max-width: 150px;
-  }
-}
-
-.Products {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  padding-bottom: 30px;
-  width: 75%;
-  max-height: 60vh;
-  overflow-y: scroll;
-
-  @media(max-width: $breakpoint-2) {
-    width: 60%;
-  }
-
-  @media(max-width: $breakpoint-3) {
-    width: 100%;
-  }
-
-  &__wrapper {
-    position: relative;
-    justify-self: center;
-    width: $card-width;
-    min-height: $card-height;
-  }
-
-  &__card {
-    transition: 0.3s;
-    width: $card-width;
-    min-height: $card-height;
-
-    &:hover {
-      position: absolute;
-      top: 0;
-      left: 0;
-      overflow-y: visible;
-      transform: translate(10px, 10px);
-      z-index: 2;
-      cursor: pointer;
+    justify-content: center;
+    gap: 40px;
+    padding-bottom: 30px;
+    width: 75%;
+    max-height: 60vh;
+    overflow-y: scroll;
+  
+    @media(max-width: $breakpoint-2) {
+      width: 60%;
     }
-
-    &:hover .media {                  // media - bulma class !!!!
-      overflow-y: visible;
-      height: unset;
+  
+    @media(max-width: $breakpoint-3) {
+      width: 100%;
     }
-  }
-}
-
-.Form {
-  display: flex;
-  justify-content: center;
-  column-gap: 30px;
-  margin: auto;
-  max-width: 60%;
-  box-shadow: 0px 0px 58px 0px #f6dfdf;
-
-  @media (max-width: $breakpoint-2) {
-    max-width: 100%;
-    flex-direction: column;
-    row-gap: 30px;
-    align-items: center;
-  }
-
-  &__container {
-    max-width: 50%;
-
-    @media (max-width: $breakpoint-3) {
-      max-width: 100%;
-    }
-
-    & :not(:last-child) {
-      margin-bottom: 10px;
-    }
-  }
-
-  &__block {
-    display: flex;
-    column-gap: 10px;
-    align-items: flex-end;
-    justify-content: space-between;
-
-    &:last-child {
-      justify-content: flex-end;
-    }
-  }
-
-  &--input {
-    max-width: 250px;
   }
 }
 
@@ -161,4 +44,32 @@
 .usd {
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
+}
+
+.ProductCard {
+  position: relative;
+  justify-self: center;
+  width: $card-width;
+  min-height: $card-height;
+
+  &--card {
+    transition: 0.3s;
+    width: $card-width;
+    min-height: $card-height;
+  
+    &:hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow-y: visible;
+      transform: translate(10px, 10px);
+      z-index: 2;
+      cursor: pointer;
+    }
+  
+    &:hover .media {                  // media - bulma class !!!!
+      overflow-y: visible;
+      height: unset;
+    }
+  }
 }

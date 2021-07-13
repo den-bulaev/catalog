@@ -1,5 +1,8 @@
 import React from 'react';
 
+import ControlMenu from './components/ControlMenu/ControlMenu';
+import Form from './components/Form/Form';
+
 import Products from './Database/products.json';
 
 import './App.scss';
@@ -8,87 +11,11 @@ function App() {
   return (
     <main className="App">
       <section className="App__main-section">
-        <div className="Control-menu">
-          <div className="Control-menu__block">
-            <h2 className="title is-3 Control-menu--title">
-              Price
-            </h2>
+        <ControlMenu />
 
-            <div className="Control-menu__price-wrapper">
-              <label htmlFor="from" className="Control-menu__price-label">
-                From:
-                <input
-                  type="number"
-                  className="input Control-menu__price"
-                  placeholder="From"
-                  id="from"
-                />
-              </label>
-
-              <label htmlFor="to" className="Control-menu__price-label">
-                To:
-                <input
-                  type="number"
-                  className="input Control-menu__price"
-                  placeholder="To"
-                  id="to"
-                />
-              </label>
-            </div>
-          </div>
-
-          <div className="Control-menu__block">
-            <h2 className="title is-3 Control-menu--title">
-              Currency
-            </h2>
-
-            <button type="button" className="button is-primary is-rounded usd">
-              USD
-            </button>
-
-            <button type="button" className="button is-warning has-text-info is-rounded uah">
-              UAH
-            </button>
-          </div>
-
-          <div className="Control-menu__block">
-            <h2 className="title is-3 Control-menu--title">
-              Sort by
-            </h2>
-
-            <div>
-              <label htmlFor="radio-1" className="Control-menu__radio">
-                <input
-                  type="radio"
-                  id="radio-1"
-                  name="sort"
-                />
-                price ascending
-              </label>
-              <label htmlFor="radio-2" className="Control-menu__radio">
-                <input
-                  type="radio"
-                  id="radio-2"
-                  name="sort"
-                  checked
-                />
-                price descending
-              </label>
-              <label htmlFor="radio-3" className="Control-menu__radio">
-                <input
-                  type="radio"
-                  id="radio-3"
-                  name="sort"
-                />
-                alphabet
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <div className="Products">
-          <div className="Products__wrapper">
-            <div className="card Products__card">
+        <div className="App__products">
+          <div className="ProductCard">
+            <div className="card ProductCard--card">
               <div className="card-content">
                 <div className="media">
                   <div className="media-left">
@@ -109,8 +36,8 @@ function App() {
             </div>
           </div>
 
-          <div className="Products__wrapper">
-            <div className="card Products__card">
+          <div className="ProductCard">
+            <div className="card ProductCard--card">
               <div className="card-content">
                 <div className="media">
                   <div className="media-left">
@@ -129,8 +56,8 @@ function App() {
             </div>
           </div>
 
-          <div className="Products__wrapper">
-            <div className="card Products__card">
+          <div className="ProductCard">
+            <div className="card ProductCard--card">
               <div className="card-content">
                 <div className="media">
                   <div className="media-left">
@@ -149,8 +76,8 @@ function App() {
             </div>
           </div>
 
-          <div className="Products__wrapper">
-            <div className="card Products__card">
+          <div className="ProductCard">
+            <div className="card ProductCard--card">
               <div className="card-content">
                 <div className="media">
                   <div className="media-left">
@@ -169,8 +96,8 @@ function App() {
             </div>
           </div>
 
-          <div className="Products__wrapper">
-            <div className="card Products__card">
+          <div className="ProductCard">
+            <div className="card ProductCard--card">
               <div className="card-content">
                 <div className="media">
                   <div className="media-left">
@@ -189,8 +116,8 @@ function App() {
             </div>
           </div>
 
-          <div className="Products__wrapper">
-            <div className="card Products__card">
+          <div className="ProductCard">
+            <div className="card ProductCard--card">
               <div className="card-content">
                 <div className="media">
                   <div className="media-left">
@@ -209,8 +136,8 @@ function App() {
             </div>
           </div>
 
-          <div className="Products__wrapper">
-            <div className="card Products__card">
+          <div className="ProductCard">
+            <div className="card ProductCard--card">
               <div className="card-content">
                 <div className="media">
                   <div className="media-left">
@@ -229,8 +156,8 @@ function App() {
             </div>
           </div>
 
-          <div className="Products__wrapper">
-            <div className="card Products__card">
+          <div className="ProductCard">
+            <div className="card ProductCard--card">
               <div className="card-content">
                 <div className="media">
                   <div className="media-left">
@@ -249,8 +176,8 @@ function App() {
             </div>
           </div>
 
-          <div className="Products__wrapper">
-            <div className="card Products__card">
+          <div className="ProductCard">
+            <div className="card ProductCard--card">
               <div className="card-content">
                 <div className="media">
                   <div className="media-left">
@@ -269,8 +196,8 @@ function App() {
             </div>
           </div>
 
-          <div className="Products__wrapper">
-            <div className="card Products__card">
+          <div className="ProductCard">
+            <div className="card ProductCard--card">
               <div className="card-content">
                 <div className="media">
                   <div className="media-left">
@@ -289,8 +216,8 @@ function App() {
             </div>
           </div>
 
-          <div className="Products__wrapper">
-            <div className="card Products__card">
+          <div className="ProductCard">
+            <div className="card ProductCard--card">
               <div className="card-content">
                 <div className="media">
                   <div className="media-left">
@@ -309,8 +236,8 @@ function App() {
             </div>
           </div>
 
-          <div className="Products__wrapper">
-            <div className="card Products__card">
+          <div className="ProductCard">
+            <div className="card ProductCard--card">
               <div className="card-content">
                 <div className="media">
                   <div className="media-left">
@@ -329,8 +256,8 @@ function App() {
             </div>
           </div>
 
-          <div className="Products__wrapper">
-            <div className="card Products__card">
+          <div className="ProductCard">
+            <div className="card ProductCard--card">
               <div className="card-content">
                 <div className="media">
                   <div className="media-left">
@@ -349,8 +276,8 @@ function App() {
             </div>
           </div>
 
-          <div className="Products__wrapper">
-            <div className="card Products__card">
+          <div className="ProductCard">
+            <div className="card ProductCard--card">
               <div className="card-content">
                 <div className="media">
                   <div className="media-left">
@@ -372,63 +299,7 @@ function App() {
       </section>
 
       <section className="App__new-product-section">
-        <form action="" className="Form box">
-          <div className="Form__container">
-            <div className="Form__block">
-              <label htmlFor="name">
-                Name
-              </label>
-
-              <input
-                className="input Form--input"
-                type="text"
-                placeholder="Product name"
-                name="product-name"
-                id="name"
-                maxLength="32"
-                required
-              />
-            </div>
-
-            <div className="Form__block">
-              <label htmlFor="price">
-                Price
-              </label>
-
-              <input
-                className="input Form--input"
-                type="number"
-                placeholder="Pice"
-                name="price"
-                id="price"
-                required
-              />
-            </div>
-
-            <div className="Form__block">
-              <label htmlFor="1">Picture</label>
-              <button
-                type="button"
-                className="button is-light"
-                id="1"
-              >
-                +
-              </button>
-            </div>
-          </div>
-
-          <div className="Form__container">
-            <textarea
-              className="textarea"
-              placeholder="Description"
-              maxLength="500"
-              required
-            />
-            <button type="submit" className="button is-light">
-              Add product
-            </button>
-          </div>
-        </form>
+        <Form />
       </section>
     </main>
   );

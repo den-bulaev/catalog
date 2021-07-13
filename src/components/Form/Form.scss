@@ -1,0 +1,44 @@
+@import "../../utils/variables";
+
+.Form {
+  display: flex;
+  justify-content: center;
+  column-gap: 30px;
+  margin: auto;
+  max-width: 60%;
+  box-shadow: 0px 0px 58px 0px #f6dfdf;
+
+  @media (max-width: $breakpoint-2) {
+    max-width: 100%;
+    flex-direction: column;
+    row-gap: 30px;
+    align-items: center;
+  }
+
+  &__container {
+    max-width: 50%;
+
+    @media (max-width: $breakpoint-3) {
+      max-width: 100%;
+    }
+
+    & :not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__block {
+    display: flex;
+    column-gap: 10px;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    &:last-child {
+      justify-content: flex-end;
+    }
+  }
+
+  &--input {
+    max-width: 250px;
+  }
+}
