@@ -36,9 +36,18 @@
     &:last-child {
       justify-content: flex-end;
     }
+
+    &--file {
+      display: flex;
+      align-items: center;
+    }
   }
 
   &--input {
     max-width: 250px;
+  }
+
+  &__file-input {
+    display: none;
   }
 }

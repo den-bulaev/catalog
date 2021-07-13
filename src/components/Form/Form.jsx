@@ -36,15 +36,14 @@ const Form = () => (
         />
       </div>
 
-      <div className="Form__block">
-        <label htmlFor="1">Picture</label>
-        <button
-          type="button"
-          className="button is-light"
+      <div className="Form__block Form__block--file">
+        <p>Image</p>
+        <label htmlFor="1" className="button is-light">+</label>
+        <input
+          type="file"
+          className="input Form__file-input"
           id="1"
-        >
-          +
-        </button>
+        />
       </div>
     </div>
 
