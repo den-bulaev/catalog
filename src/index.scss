@@ -10,7 +10,6 @@ body {
   display: block !important;         // bulma class
   height: 160px;
   overflow: hidden;
-  text-overflow: ellipsis;
   transition: 0.3s;
 }
 
@@ -20,4 +19,10 @@ body {
 
 .media-left {                 // bulma class
   float: left;
+}
+
+@media screen and (max-width: 768px) {
+  .media-content {
+    overflow-x: visible !important;     // kill bulma default style
+  }
 }
