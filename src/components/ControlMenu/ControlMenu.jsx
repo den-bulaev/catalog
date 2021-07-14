@@ -8,7 +8,9 @@ import './ControlMenu.scss';
 
 const currencyPair = ['USD', 'UAH'];
 
-const ControlMenu = ({ setCurrency, setConvertedCurrency }) => {
+const ControlMenu = ({
+  setCurrency, setConvertedCurrency, sortBy, setSortBy,
+}) => {
   const defineCurrency = (event) => {
     setCurrency(event.target.innerText);
   };
@@ -24,6 +26,12 @@ const ControlMenu = ({ setCurrency, setConvertedCurrency }) => {
     defineCurrency(event);
 
     setConvertedCurrency(0);
+  };
+
+  const handleChange = (event) => {
+    const sortOption = event.target.id;
+
+    setSortBy(sortOption);
   };
 
   return (
@@ -84,28 +92,33 @@ const ControlMenu = ({ setCurrency, setConvertedCurrency }) => {
         </h2>
 
         <div>
-          <label htmlFor="radio-1" className="ControlMenu__radio">
+          <label htmlFor="ascending" className="ControlMenu__radio">
             <input
               type="radio"
-              id="radio-1"
+              id="ascending"
               name="sort"
+              onChange={handleChange}
+              checked={sortBy === 'ascending'}
             />
             price ascending
           </label>
-          <label htmlFor="radio-2" className="ControlMenu__radio">
+          <label htmlFor="descending" className="ControlMenu__radio">
             <input
               type="radio"
-              id="radio-2"
+              id="descending"
               name="sort"
-              checked
+              onChange={handleChange}
+              checked={sortBy === 'descending'}
             />
             price descending
           </label>
-          <label htmlFor="radio-3" className="ControlMenu__radio">
+          <label htmlFor="alphabet" className="ControlMenu__radio">
             <input
               type="radio"
-              id="radio-3"
+              id="alphabet"
               name="sort"
+              onChange={handleChange}
+              checked={sortBy === 'alphabet'}
             />
             alphabet
           </label>
@@ -118,6 +131,8 @@ const ControlMenu = ({ setCurrency, setConvertedCurrency }) => {
 ControlMenu.propTypes = {
   setCurrency: PropTypes.func.isRequired,
   setConvertedCurrency: PropTypes.func.isRequired,
+  sortBy: PropTypes.string.isRequired,
+  setSortBy: PropTypes.func.isRequired,
 };
 
 export default React.memo(ControlMenu);

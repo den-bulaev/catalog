@@ -9,6 +9,7 @@ import './App.scss';
 function App() {
   const [currency, setCurrency] = useState('UAH');
   const [convertedCurrency, setConvertedCurrency] = useState(0);
+  const [sortBy, setSortBy] = useState('descending');
 
   return (
     <main className="App">
@@ -17,12 +18,15 @@ function App() {
           setCurrency={setCurrency}
           setConvertedCurrency={setConvertedCurrency}
           convertedCurrency={convertedCurrency}
+          setSortBy={setSortBy}
+          sortBy={sortBy}
         />
 
         <div className="App__products">
           <ProductCard
             currency={currency}
             convertedCurrency={convertedCurrency}
+            sortBy={sortBy}
           />
         </div>
       </section>
