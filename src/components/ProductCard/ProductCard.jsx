@@ -11,10 +11,10 @@ const ProductCard = ({ currency, convertedCurrency, sortBy }) => {
 
     switch (sortBy) {
       case 'descending':
-        return arr.sort((a, b) => a.price - b.price);
+        return arr.sort((a, b) => b.price - a.price);
 
       case 'ascending':
-        return arr.sort((a, b) => b.price - a.price);
+        return arr.sort((a, b) => a.price - b.price);
 
       case 'alphabet':
         return arr.sort((a, b) => a.name.localeCompare(b.name));
