@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Products from '../../Database/products.json';
 
 import './ProductCard.scss';
 
-const ProductCard = () => (
+const ProductCard = ({ currency, convertedCurrency }) => (
   <>
     {Products.products.map(({
       id, name, price, image, description,
@@ -24,7 +25,7 @@ const ProductCard = () => (
               </div>
               <div className="media-content">
                 <p className="title is-4">{name}</p>
-                <p>{`${price} ${'UAH'}`}</p>
+                <p>{`${convertedCurrency ? (price / convertedCurrency).toFixed(2) : price} ${currency}`}</p>
                 <p>Description:</p>
                 <p>
                   {description}
@@ -37,5 +38,10 @@ const ProductCard = () => (
     ))}
   </>
 );
+
+ProductCard.propTypes = {
+  currency: PropTypes.string.isRequired,
+  convertedCurrency: PropTypes.number.isRequired,
+};
 
 export default React.memo(ProductCard);

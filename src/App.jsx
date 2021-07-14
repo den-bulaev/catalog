@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import ControlMenu from './components/ControlMenu/ControlMenu';
 import ProductCard from './components/ProductCard/ProductCard';
@@ -7,13 +7,23 @@ import Form from './components/Form/Form';
 import './App.scss';
 
 function App() {
+  const [currency, setCurrency] = useState('UAH');
+  const [convertedCurrency, setConvertedCurrency] = useState(0);
+
   return (
     <main className="App">
       <section className="App__main-section">
-        <ControlMenu />
+        <ControlMenu
+          setCurrency={setCurrency}
+          setConvertedCurrency={setConvertedCurrency}
+          convertedCurrency={convertedCurrency}
+        />
 
         <div className="App__products">
-          <ProductCard />
+          <ProductCard
+            currency={currency}
+            convertedCurrency={convertedCurrency}
+          />
         </div>
       </section>
 
