@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { debounce } from 'lodash';
 
 import { convertCurrency } from '../../api/currency';
 
@@ -12,12 +13,12 @@ const ControlMenu = ({ setCurrency, setConvertedCurrency }) => {
     setCurrency(event.target.innerText);
   };
 
-  const handleClickConvert = (event) => {
+  const handleClickConvert = debounce((event) => {
     defineCurrency(event);
 
     convertCurrency(currencyPair[0], currencyPair[1])
       .then((result) => setConvertedCurrency(result[currencyPair.join('_')]));
-  };
+  }, 500);
 
   const handleClickUah = (event) => {
     defineCurrency(event);
