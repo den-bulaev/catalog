@@ -10,6 +10,7 @@ const currencyPair = ['USD', 'UAH'];
 
 const ControlMenu = ({
   setCurrency, setConvertedCurrency, sortBy, setSortBy,
+  setFrom, setTo, from, to,
 }) => {
   const defineCurrency = (event) => {
     setCurrency(event.target.innerText);
@@ -20,18 +21,42 @@ const ControlMenu = ({
 
     convertCurrency(currencyPair[0], currencyPair[1])
       .then((result) => setConvertedCurrency(result[currencyPair.join('_')]));
+
+    setFrom('');
+    setTo('');
   }, 500);
 
   const handleClickUah = (event) => {
     defineCurrency(event);
 
     setConvertedCurrency(0);
+
+    setFrom('');
+    setTo('');
   };
 
   const handleChange = (event) => {
     const sortOption = event.target.id;
 
     setSortBy(sortOption);
+  };
+
+  const handleChangePriceRange = (event) => {
+    const fieldName = event.target.name;
+    const fieldValue = event.target.value;
+
+    switch (fieldName) {
+      case 'from':
+        setFrom(fieldValue);
+        break;
+
+      case 'to':
+        setTo(fieldValue);
+        break;
+
+      default:
+        throw new Error(`Unexpected field name: ${fieldName}`);
+    }
   };
 
   return (
@@ -49,6 +74,9 @@ const ControlMenu = ({
               className="input ControlMenu__price"
               placeholder="From"
               id="from"
+              value={from}
+              onChange={handleChangePriceRange}
+              name="from"
             />
           </label>
 
@@ -59,6 +87,9 @@ const ControlMenu = ({
               className="input ControlMenu__price"
               placeholder="To"
               id="to"
+              value={to}
+              onChange={handleChangePriceRange}
+              name="to"
             />
           </label>
         </div>
@@ -133,6 +164,10 @@ ControlMenu.propTypes = {
   setConvertedCurrency: PropTypes.func.isRequired,
   sortBy: PropTypes.string.isRequired,
   setSortBy: PropTypes.func.isRequired,
+  from: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
+  setFrom: PropTypes.func.isRequired,
+  setTo: PropTypes.func.isRequired,
 };
 
 export default React.memo(ControlMenu);

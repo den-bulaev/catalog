@@ -24,14 +24,48 @@ const sortArr = (by, arr) => {
   }
 };
 
+const transformPrice = (price, rate) => {
+  if (rate) {
+    return (price / rate).toFixed(2);
+  }
+
+  return price;
+};
+
+const filterArr = (arr, lower, higher, rate) => {
+  if (lower && higher) {
+    return arr.filter(
+      (el) => transformPrice(el.price, rate) >= +lower && transformPrice(el.price, rate) <= +higher,
+    );
+  }
+
+  if (lower) {
+    return arr.filter((el) => transformPrice(el.price, rate) >= +lower);
+  }
+
+  if (higher) {
+    return arr.filter((el) => transformPrice(el.price, rate) <= +higher);
+  }
+
+  return arr;
+};
+
 function App() {
   const [currency, setCurrency] = useState('UAH');
   const [convertedCurrency, setConvertedCurrency] = useState(0);
   const [sortBy, setSortBy] = useState('descending');
+  const [from, setFrom] = useState('');
+  const [to, setTo] = useState('');
 
-  const arr = [...Products.products];
+  const productsCopy = [...Products.products];
 
-  const sortedProducts = useMemo(() => sortArr(sortBy, arr), [sortBy]);
+  const filteredProducts = useMemo(() => filterArr(
+    productsCopy, from, to, convertedCurrency,
+  ), [sortBy, from, to]);
+
+  const sortedProducts = useMemo(() => sortArr(
+    sortBy, filteredProducts,
+  ), [sortBy, from, to]);
 
   return (
     <main className="App">
@@ -42,6 +76,10 @@ function App() {
           convertedCurrency={convertedCurrency}
           setSortBy={setSortBy}
           sortBy={sortBy}
+          from={from}
+          to={to}
+          setFrom={setFrom}
+          setTo={setTo}
         />
 
         <div className="App__products">
