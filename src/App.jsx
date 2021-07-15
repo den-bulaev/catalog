@@ -1,15 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 import ControlMenu from './components/ControlMenu/ControlMenu';
 import ProductCard from './components/ProductCard/ProductCard';
 import Form from './components/Form/Form';
 
+import Products from './Database/products.json';
+
 import './App.scss';
+
+const sortArr = (by, arr) => {
+  switch (by) {
+    case 'descending':
+      return arr.sort((a, b) => b.price - a.price);
+
+    case 'ascending':
+      return arr.sort((a, b) => a.price - b.price);
+
+    case 'alphabet':
+      return arr.sort((a, b) => a.name.localeCompare(b.name));
+
+    default:
+      throw new Error(`Unexpected sort option: ${by}`);
+  }
+};
 
 function App() {
   const [currency, setCurrency] = useState('UAH');
   const [convertedCurrency, setConvertedCurrency] = useState(0);
   const [sortBy, setSortBy] = useState('descending');
+
+  const arr = [...Products.products];
+
+  const sortedProducts = useMemo(() => sortArr(sortBy, arr), [sortBy]);
 
   return (
     <main className="App">
@@ -26,7 +48,7 @@ function App() {
           <ProductCard
             currency={currency}
             convertedCurrency={convertedCurrency}
-            sortBy={sortBy}
+            sortedProducts={sortedProducts}
           />
         </div>
       </section>
