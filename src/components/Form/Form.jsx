@@ -43,6 +43,8 @@ const Form = () => (
           type="file"
           className="input Form__file-input"
           id="1"
+          name="image"
+          required
         />
       </div>
     </div>
@@ -53,6 +55,7 @@ const Form = () => (
         placeholder="Description"
         maxLength="500"
         required
+        name="description"
       />
       <button type="submit" className="button is-light">
         Add product
